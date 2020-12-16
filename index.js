@@ -37,11 +37,10 @@ const otrasRuta = require('./routes/otras');
 app.use('/api', autRuta)
 app.use('/api/otras', verificaToken, otrasRuta)
 
-app.get('/', (req, res)=>{
-    res.json({
-        message: 'Pagina Principal'
-    })
-})
+// Middleware para Vue.js router modo history
+const history = require('connect-history-api-fallback');
+app.use(history());
+app.use(express.static(__dirname + "/public"));
 
 // iniciar server
 const PORT = process.env.PORT || 3001;
