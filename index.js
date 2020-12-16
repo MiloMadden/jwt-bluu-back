@@ -37,6 +37,12 @@ const otrasRuta = require('./routes/otras');
 app.use('/api', autRuta)
 app.use('/api/otras', verificaToken, otrasRuta)
 
+app.get('/', (req, res)=>{
+    res.json({
+        message: 'Pagina Principal'
+    })
+})
+
 // iniciar server
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
