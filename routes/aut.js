@@ -19,6 +19,13 @@ const schemaLogin = Joi.object({
 
 //===================================================================
 
+router.get('/', (req, res)=>{
+    res.json({
+        ok: true, 
+        msg: 'Subido al servidor'
+    })
+})
+
 router.get('/get', verificaToken,(req,res)=>{
     res.json({
         msg: 'hora de aventura', 
